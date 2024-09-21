@@ -1,15 +1,25 @@
+html, body{
+    min-height: 100%;
+    background-color: rgb(31, 29, 29);
+}
 *{
     margin:  0;
     padding: 0;
     font-family: "Roboto";
     font-weight: 400;
     font-style: normal;
+    color: white;
+}
+
+.container_body{
+    min-height: 65vh;
 }
 
 .header_main_container{
-    padding: 2em 2%;
+    padding: 1em 2%;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid orange;
 }
 
 .header_main_container img{
@@ -30,4 +40,68 @@
 .header_main_container ul li a{
     text-decoration: none;
     font-weight: 500;
+    transition: .4s;
  }
+ .header_main_container ul li a:hover{
+    color: orange;
+ }
+
+ 
+/* style de register de users */
+
+.container_form h1{
+    text-align: center;
+    margin: 1em 0;
+    font-weight: 500;
+}
+
+.container_form form{
+    margin: 0 auto;
+    max-width: 450px;
+}
+
+.container_form .form_control{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+}
+
+.container_form .form_control:last-child{
+    margin-top: 1.5em;
+}
+
+.form_control label{
+    margin-bottom: .5em;
+    font-weight: 500;
+}
+
+.form_control input{
+    outline: none;
+    border: 1px solid orange;
+    background-color: transparent;
+    padding: .5em 1em;
+    border-radius: 4px;   
+    transition: .5s;
+}
+
+.form_control input::placeholder{
+     color: white;
+}
+
+.form_control input[type="submit"]{
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form_control input[type="submit"]:hover{
+    background-color: orange;
+    color: black;
+}
+
+
+/* FOOTER */
+
+footer{
+    padding: 2em 0;
+    text-align: center;
+}
