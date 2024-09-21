@@ -12,8 +12,8 @@ app.set('view engine', 'handlebars');
 const conn = require('./db/conn')
 
 //ROTAS
-const authRoutes = require('./router/auth')
-const toughtsRoutes = require('./router/toughts')
+const auth = require('./router/auth')
+const toughts = require('./router/toughts')
 
 app.use(session({
     name: 'session',
@@ -36,7 +36,7 @@ app.use(flash());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-app.use(express.static('/public'))
+app.use(express.static('public'))
 
 app.use((req, res, next) => {
     if (req.session.userid) {
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
         return next();
     }
 
-    next(); // Apenas segue para o próximo middleware
+    next();
 });
 
 app.use((req, res, next) => {
@@ -55,15 +55,17 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    console.log(`Path: ${req.path}, Sessão: ${req.session.userid}`);
+    // console.log(`Path: ${req.path}, Sessão: ${req.session.userid}`);
     next();
 });
 
-app.use('/', authRoutes);
-app.use('/toughts', toughtsRoutes);
+app.use('/', auth);
+app.use('/', toughts);
+app.use('/toughts', toughts);
 
 
 conn.
+// sync({force: true}).
 sync().
 then(() => {
     app.listen(3000, () => {

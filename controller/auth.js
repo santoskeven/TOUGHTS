@@ -1,4 +1,4 @@
-// const auth = require('../models/auth')
+const auth = require('../models/auth')
 
 module.exports = class AuthController{
 
