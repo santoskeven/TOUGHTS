@@ -1,1 +1,9 @@
 <h1>dashboard</h1>
+
+<a href="/Toughts/create">CRIAR NOVO PENSAMENTO</a>
+
+{{#each toughts}}
+   <div class="container_tought">
+        <li>{{this.title}}</li>
+   </div>
+{{/each}}
