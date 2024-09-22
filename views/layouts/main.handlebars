@@ -16,12 +16,27 @@
         <img src="/img/lampada.png">
 
         <ul>
-            <li><a href="/">PENSAMENTOS</a></li>
-            <li><a href="/login">ENTRAR</a></li>
-            <li><a href="/register">REGISTRAR</a></li>
+            {{#if session.userid}}
+                <li><a href="/">PENSAMENTOS</a></li>
+                <li><a href="/toughts/dashboard">DASHBOARD</a></li>
+                <li><a href="/logout">SAIR</a></li>    
+            {{else}}
+                <li><a href="/">PENSAMENTOS</a></li>
+                <li><a href="/login">ENTRAR</a></li>
+                <li><a href="/register">REGISTRAR</a></li>    
+            {{/if}}
+            
         </ul>
 
     </nav>
+
+    {{#if messages.message}}
+        <div class="container_messages">
+            <p>{{messages.message}}</p>
+        </div>   
+    {{/if}}
+
+    
   
   <div class="container_body">
       {{{ body }}}
