@@ -1,9 +1,23 @@
-<h1>dashboard</h1>
-
-<a href="/Toughts/create">CRIAR NOVO PENSAMENTO</a>
+<div class="container_infoBody">
+  <div class="dashboard_header">
+     <div>
+         <h1>DASHBOARD</h1>
+         <h3>TODOS OS SEUS PENSAMENTOS</h3>
+     </div>
+      <a href="/Toughts/create">CRIAR NOVO PENSAMENTO</a>
+  </div>
 
 {{#each toughts}}
    <div class="container_tought">
         <li>{{this.title}}</li>
+
+        <div class="container_actions">
+            <a href="/toughts/edit/{{this.id}}">EDITAR</a>
+            <form action="/toughts/delete" method="post">
+               <input type="hidden" name="id" value={{this.id}}>
+               <input type="submit" value="EXCLUIR">
+            </form>
+        </div>
    </div>
 {{/each}}
+</div>

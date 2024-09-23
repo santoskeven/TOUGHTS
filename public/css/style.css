@@ -104,6 +104,80 @@ html, body{
     color: black;
 }
 
+/* DASHBOARD */
+
+.dashboard_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2%;
+    margin: 1.5em 0;
+}
+
+.dashboard_header a{
+    text-decoration: none;
+    padding: .5em 1em;
+    background-color: rgba(255, 166, 0, 0.733);
+    border-radius: 4px;
+    transition: .5s;
+}
+
+.dashboard_header a:hover{
+    background-color: rgb(255, 166, 0);
+}
+
+.container_tought{
+    display: flex;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: 0 auto 2em;
+    padding: 1em .5em;
+    border-bottom: 1px solid orange;
+}
+
+.container_tought li{
+   list-style-type: none;
+}
+
+.container_actions{
+    display: flex;
+    align-items: center;
+}
+
+.container_actions form input{
+    margin-left: 2em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: .4em .9em;
+    /* height: 35px;
+    width: 80px; */
+    background-color: rgba(107, 106, 106, 0.452);
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: .4s;
+}
+
+.container_actions a{
+    padding: .4em .9em;
+    font-size: 16px;
+    text-decoration: none;
+    /* height: 35px;
+    width: 80px;  */
+    background-color: rgba(107, 106, 106, 0.452);
+    border-radius: 4px;
+    transition: .4s;
+}
+
+.container_actions a:hover{
+    background-color: rgba(255, 166, 0, 0.74);
+    color: white;
+}
+.container_actions input:hover{
+    background-color: rgba(255, 166, 0, 0.74);
+    color: white;
+}
+
 
 /* FOOTER */
 
