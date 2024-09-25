@@ -1,26 +1,50 @@
 const Toughts = require('../models/toughts')
 const User = require('../models/auth')
-const { where } = require('sequelize')
+const { Op} = require('sequelize')
 
 module.exports = class ToughtsController{
 
     static async Showall(req, res){
 
-        res.render('toughts/home')
+        const userId = req.session.userid
+
+        let search = '';
+
+        if(req.query.search){
+            search = req.query.search;
+        }
+
+        let order = 'DESC'
+
+        if(req.query.order === 'old'){
+            order = 'ASC'
+        }else{
+             order = 'DESC'
+        }
+
+        const usersData = await Toughts.findAll({
+            include: User,
+            where: {title: {[Op.like]: `%${search}%`}},
+            order: [['createdAt', order]]
+        })
+
+        const toughts = usersData.map((result) => result.get({plain: true}))
+
+    
+        res.render('toughts/home', {toughts})
     }
     
     static async dashboard(req, res){
 
-        const UserId = req.session.userid
+        const sessionId = req.session.userid
 
-        const user = await User.findOne({where: {id : UserId},
-            include: Toughts,
-            plain: true
+        const toughts = await Toughts.findAll({
+            where: {UserId : sessionId},
+            raw: true,
+            order: [['createdAt', 'DESC']]
         })
-
-        const toughts = user.Toughts.map((result)=>result.dataValues)
         
-        res.render('toughts/dashboard', {toughts})
+        res.render('toughts/dashboard' , {toughts})
     }
 
     static Create(req, res){
@@ -69,7 +93,9 @@ module.exports = class ToughtsController{
         
        try {
         await Toughts.update(toughts, {where: {id : id}})
-        res.redirect('/toughts/dashboard')
+        req.session.save(()=>{
+            res.redirect('/toughts/dashboard')
+        })
        } catch (error) {    
         console.log(error)
        }
@@ -79,7 +105,9 @@ module.exports = class ToughtsController{
         const id = req.body.id 
         try{
             await Toughts.destroy({where: {id:id}})
-            res.redirect('/toughts/dashboard')
+            req.session.save(()=>{
+                res.redirect('/toughts/dashboard')
+            })
         }catch(err){
             console.log(err)
         }

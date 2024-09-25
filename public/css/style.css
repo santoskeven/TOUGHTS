@@ -52,7 +52,112 @@ html, body{
     color: orange;
  }
 
- 
+
+ /* HOME */
+
+ .home_search{
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+ }
+
+.home_search form{
+    display: flex;
+    justify-content: space-between;
+}
+.home_search input{
+    background-color: transparent;
+}
+
+.home_search input[type="text"]{
+    width: 77%;
+    border: none;
+    border-bottom: 1px solid orange;
+    padding: .4em .5em;
+    outline: none;
+}
+
+.home_search input::placeholder{
+    color: white;
+}
+
+.home_search input[type="submit"]{
+    border: none;
+    cursor: pointer;
+    border-bottom: 1px solid orange;
+    /* border-radius: 4px; */
+    padding: .4em .6em;
+    outline: none;
+    transition: .5s;
+}
+
+.home_search input[type="submit"]:hover{
+   background-color: rgb(240, 174, 51);
+   border-radius: 4px;
+}
+
+.container_order form button{
+    background-color: transparent;
+    padding: .2em .3em;
+    border: 1px solid rgb(44, 44, 44);
+}
+
+.home_container h1{
+    text-align: center;
+    margin: 1.3em;
+}
+
+.container_order{
+    margin: 2em auto .8em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+
+    /* background-color: red; */
+    text-align: center;
+}
+
+.container_order h3{
+    font-size: 18px;
+}
+
+.form_order button{
+    padding: .2em;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.container_order a{
+    text-decoration: none;
+    border: 1px solid rgb(230, 170, 60);
+    padding: .2em .6em;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.form_order button:hover{
+    background-color: orange;
+}
+
+.homeToughts{
+max-width: 50% !important;
+min-width: 40%;
+}
+
+.homeToughts li{
+    font-size: 28px;
+}
+
+.homeToughts li p{
+    font-size: 16px;
+    color: orange;
+    margin-top: .5em;
+}
+
+
+     
+
 /* style de register de users */
 
 .container_form h1{

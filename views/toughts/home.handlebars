@@ -1,1 +1,35 @@
-<h1>TODOS OS PENSAMENTOS</h1>
+<div class="home_container">
+    <h1>TODOS OS PENSAMENTOS</h1>
+
+    <div class="home_search">
+       <form>
+            <input type="text" name="search" placeholder="Procurando por algo?">
+            <input type="submit" value="BUSCAR" >
+        </form>
+    </div> 
+
+    <div class="container_order">
+        <h3>ORDENAR POR </h3>
+
+        <form class="form_order">
+            <input type="hidden" name="search" value={{this.search}}>
+            <input type="hidden" name="order" value="new">
+            <button type="submit"><i class="bi bi-arrow-up"></i></button>
+        </form>
+
+        <form  class="form_order">
+            <input type="hidden" name="search" value={{this.search}}>
+            <input type="hidden" name="order" value="old">
+            <button><i class="bi bi-arrow-down"></i></button>
+        </form> 
+
+        <a href="/">LIMPAR</a>
+    </div>
+
+    {{#each toughts}}
+    <div class="container_tought homeToughts">
+            <li> {{this.title}} <p> <span>por </span> {{User.name}}</p> </li>
+        
+    </div>
+    {{/each}}
+</div>
